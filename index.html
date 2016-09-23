@@ -308,13 +308,13 @@
       
         
           
-            <h2 id="工具准备"><a href="#工具准备" class="headerlink" title="工具准备"></a>工具准备</h2><p>要使用Hexo，需要在你的系统中安装Nodejs以及Git。</p>
-<ol>
+            <h2 id="一、工具准备"><a href="#一、工具准备" class="headerlink" title="一、工具准备"></a>一、工具准备</h2><p>要使用Hexo，需要在你的系统中安装Nodejs以及Git。</p>
+<ul>
 <li><strong>安装Node.js</strong><br><a href="http://www.runoob.com/nodejs/nodejs-install-setup.html" target="_blank" rel="external">安装教程</a></li>
 <li><strong>安装Git</strong><br><a href="https://git-scm.com/downloads" target="_blank" rel="external">下载地址</a></li>
-</ol>
-<h2 id="安装Hexo"><a href="#安装Hexo" class="headerlink" title="安装Hexo"></a>安装Hexo</h2><p>现在打开我们安装好的Git bash：<br><figure class="highlight bash"><table><tr><td class="code"><pre><div class="line">$ npm install -g hexo-cli</div><div class="line">$ <span class="built_in">cd</span> E:</div><div class="line">$ hexo init Hexo</div><div class="line">$ <span class="built_in">cd</span> Hexo</div><div class="line">$ npm install</div><div class="line">$ hexo g</div><div class="line">$ hexo s</div></pre></td></tr></table></figure></p>
-<p>好了，如果一切安装顺利的话，此刻，打开你的浏览器，地址栏输入:<code>localhost:4000</code>就可以看到默认生成的博客了！</p>
+</ul>
+<h2 id="二、安装Hexo"><a href="#二、安装Hexo" class="headerlink" title="二、安装Hexo"></a>二、安装Hexo</h2><p>现在打开我们安装好的Git bash：<br><figure class="highlight bash"><table><tr><td class="code"><pre><div class="line">$ npm install -g hexo-cli</div><div class="line">$ <span class="built_in">cd</span> E:</div><div class="line">$ hexo init Hexo</div><div class="line">$ <span class="built_in">cd</span> Hexo</div><div class="line">$ npm install</div><div class="line">$ hexo g</div><div class="line">$ hexo s</div></pre></td></tr></table></figure></p>
+<p>好了，如果一切安装顺利的话，此刻，打开你的浏览器，地址栏输入:<code>localhost:4000</code>就可以看到默认生成的博客了！如下图：<br><img src="http://odyf4frh9.bkt.clouddn.com/blog0101.png" alt=""></p>
 <p>解释一下Hexo常用的几个命令：</p>
 <ol>
 <li><code>$ hexo g</code>(hexo generate) #生成静态文件，会在当前目录下生成一个新的叫做public的文件夹;</li>
@@ -325,19 +325,18 @@
 </ol>
 <p>常用简写：<br><figure class="highlight bash"><table><tr><td class="code"><pre><div class="line">$ hexo n == hexo new</div><div class="line">$ hexo g == hexo generate</div><div class="line">$ hexo s == hexo server</div><div class="line">$ hexo d == hexo deploy</div></pre></td></tr></table></figure></p>
 <p>常用组合：<br><figure class="highlight bash"><table><tr><td class="code"><pre><div class="line">$ hexo d -g <span class="comment">#生成部署</span></div><div class="line">$ hexo s -g <span class="comment">#生成预览</span></div></pre></td></tr></table></figure></p>
-<h2 id="主题修改"><a href="#主题修改" class="headerlink" title="主题修改"></a>主题修改</h2><p>Hexo有许多可选择的主题，参考这儿<a href="https://hexo.io/themes/" target="_blank" rel="external">Hexo主题</a>,这里介绍一款非常流行的主题Next，样式参考本博客。教程如下：</p>
+<h2 id="三、主题修改"><a href="#三、主题修改" class="headerlink" title="三、主题修改"></a>三、主题修改</h2><p>Hexo有许多可选择的主题，参考这儿<a href="https://hexo.io/themes/" target="_blank" rel="external">Hexo主题</a>,这里介绍一款非常流行的主题Next，样式参考本博客。教程如下：</p>
 <p><strong>安装主题</strong><br>(参考<a href="http://theme-next.iissnan.com/getting-started.html" target="_blank" rel="external">官方教程</a>)<br><figure class="highlight bash"><table><tr><td class="code"><pre><div class="line">$ git <span class="built_in">clone</span> https://github.com/iissnan/hexo-theme-next themes/next</div></pre></td></tr></table></figure></p>
 <p><strong>启用主题</strong><br>修改Hexo目录下的<code>_config.yml</code>配置文件中的<code>theme</code>属性，(查找快捷键<code>Ctrl+F</code>)将其设置为<code>next</code>。</p>
 <p><strong>更新主题</strong><br><figure class="highlight bash"><table><tr><td class="code"><pre><div class="line">$ <span class="built_in">cd</span> themes/next</div><div class="line">$ git pull</div><div class="line">$ ../</div><div class="line">$ ../</div><div class="line">$ hexo g </div><div class="line">$ hexo s</div></pre></td></tr></table></figure></p>
-<p>好了，打开浏览器，地址栏输入：<code>localhost：4000</code>预览新主题。</p>
-<p>解释一下常用的git命令：<br><figure class="highlight bash"><table><tr><td class="code"><pre><div class="line">$ ../ <span class="comment">#切换到上一级目录</span></div></pre></td></tr></table></figure></p>
-<h2 id="Github-Pages设置"><a href="#Github-Pages设置" class="headerlink" title="Github Pages设置"></a>Github Pages设置</h2><p><strong>创建自己的Github Pages</strong></p>
+<p>好了，打开浏览器，地址栏输入：<code>localhost：4000</code>预览新主题。如下图：<br><img src="http://odyf4frh9.bkt.clouddn.com/blog0102.png" alt=""></p>
+<h2 id="四、Github-Pages设置"><a href="#四、Github-Pages设置" class="headerlink" title="四、Github Pages设置"></a>四、Github Pages设置</h2><p><strong>创建自己的Github Pages</strong></p>
 <ol>
 <li>注册一个Github账号：<a href="https://github.com/join" target="_blank" rel="external">Github注册</a></li>
-<li>在GitHub上创建一个仓库repository，注意仓库名称必须为<code>&lt;你的账户名&gt;.github.io</code>,例如我的是<code>waarm.github.io</code>,这里我的由于已经存在这个名称的仓库，所以无法重名。</li>
-<li>启用自动生成：到我们刚刚新建的仓库页面，点击<code>Settings</code>,找到<code>Launch automatic page generator</code>，点击，继续点击<code>Continue to layout</code>,最后<code>publish page</code>。OK,现在打开浏览器，输入你新建的仓库地址，例如我的是<code>waarm.github.io</code>，就可以看到刚才自动生成的页面了。</li>
+<li>在GitHub上新建一个仓库repository，注意仓库名称必须为<code>&lt;你的账户名&gt;.github.io</code>,例如我的是<code>waarm.github.io</code>,这里我的由于已经存在这个名称的仓库，所以无法重名。<br><img src="http://odyf4frh9.bkt.clouddn.com/blog0103.png" alt=""><br><img src="http://odyf4frh9.bkt.clouddn.com/blog0104.png" alt=""></li>
+<li>启用自动生成：到我们刚刚新建的仓库页面，点击<code>Settings</code>,找到<code>Launch automatic page generator</code>，点击，继续点击<code>Continue to layout</code>,最后<code>publish page</code>。OK,现在打开浏览器，输入你新建的仓库地址，例如我的是<code>waarm.github.io</code>，就可以看到刚才自动生成的页面了。<br><img src="http://odyf4frh9.bkt.clouddn.com/blog0105.png" alt=""><br><img src="http://odyf4frh9.bkt.clouddn.com/blog0106.png" alt=""></li>
 </ol>
-<h2 id="SSH-Key"><a href="#SSH-Key" class="headerlink" title="SSH Key"></a>SSH Key</h2><ol>
+<h2 id="五、SSH-Key配置"><a href="#五、SSH-Key配置" class="headerlink" title="五、SSH Key配置"></a>五、SSH Key配置</h2><ol>
 <li><p><strong>生成SSH Key</strong></p>
 <ul>
 <li><p>首先我们需要检查你电脑上现有的ssh key：</p>
@@ -349,32 +348,35 @@
 </li>
 <li><p>然后系统会要你输入密码：</p>
 <figure class="highlight plain"><table><tr><td class="code"><pre><div class="line">Enter passphase (empty for nopassphase):&lt;输入密码&gt;</div><div class="line">Enter same passphase again:&lt;确认密码&gt;</div></pre></td></tr></table></figure>
-<p>这个密码是你之后将项目部署到到远端(Github等)需要用到的密码，如果为空的话提交项目时则不用输入，这个设置是防止别人往你的项目里提交内容。(<strong>注意</strong>：输入密码的时候是没有  <code>*</code>字样的，直接输入就行。)</p>
+<p>这个密码是你之后将项目部署到到远端(如Github)时需要用到的密码，如果为空的话提交项目时则不用输入，这个设置是防止别人往你的项目里提交内容。(<strong>注意</strong>：输入密码的时候是没有  <code>*</code>字样的，直接输入就行。)</p>
 </li>
-<li><p>最后看到这样的界面，表示成功设置ssh key了。</p>
+<li><p>最后看到这样的界面，表示成功设置ssh key了。<br><img src="http://odyf4frh9.bkt.clouddn.com/blog0107.jpg" alt=""></p>
 </li>
 </ul>
 </li>
 <li><p><strong>添加SSH Key到Github</strong></p>
 <p> 在本机设置SSH Key之后，需要添加到GitHub上，以完成SSH链接的设置。</p>
 <ul>
-<li><code>C:\用户\Admin\.ssh\id_rsa.pub</code>文件,此文件里面内容为刚才生成人密钥。如果看不到这个文件，你需要设置显示隐藏文件。复制文件里面的内容。</li>
+<li>资源管理器中找到<code>C:\用户\Admin\.ssh\id_rsa.pub</code>文件,此文件里面内容为刚才生成的密钥。如果看不到这个文件，你需要设置显示隐藏文件。复制文件里面的内容。</li>
 <li>登录Github，点击头像下拉框里的<code>Settings</code>,点击左侧的<code>SSH and GPG keys</code>,<code>New SSH key</code>,粘贴刚才复制的内容即可。</li>
 </ul>
 </li>
 <li><p><strong>测试SSH Key是否设置添加成功</strong></p>
 <figure class="highlight plain"><table><tr><td class="code"><pre><div class="line">$ ssh -T git@github.com</div></pre></td></tr></table></figure>
+<p> 显示如下：</p>
+ <figure class="highlight plain"><table><tr><td class="code"><pre><div class="line">The authenticity of host &apos;github.com (207.97.227.239)&apos; can&apos;t be established.</div><div class="line">RSA key fingerprint is 16:27:ac:a5:76:28:2d:36:63:1b:56:4d:eb:df:a6:48.</div><div class="line">Are you sure you want to continue connecting (yes/no)?</div></pre></td></tr></table></figure>
+<p> 输入<code>yes</code>,看到<code>Hi aierui! You’ve successfully authenticated, but GitHub does not provide shell access.</code>表示添加成功。</p>
 </li>
 </ol>
-<p>显示如下：<br><figure class="highlight plain"><table><tr><td class="code"><pre><div class="line">The authenticity of host &apos;github.com (207.97.227.239)&apos; can&apos;t be established.</div><div class="line">RSA key fingerprint is 16:27:ac:a5:76:28:2d:36:63:1b:56:4d:eb:df:a6:48.</div><div class="line">Are you sure you want to continue connecting (yes/no)?</div></pre></td></tr></table></figure></p>
-<p>输入<code>yes</code>,看到<code>Hi aierui! You’ve successfully authenticated, but GitHub does not provide shell access.</code>表示添加成功。</p>
-<h2 id="使用hexo-deploy部署到Github"><a href="#使用hexo-deploy部署到Github" class="headerlink" title="使用hexo deploy部署到Github"></a>使用hexo deploy部署到Github</h2><ol>
+<h2 id="六、部署到Github"><a href="#六、部署到Github" class="headerlink" title="六、部署到Github"></a>六、部署到Github</h2><ol>
 <li><p>修改站点的-config.yml文件如下：</p>
 <figure class="highlight bash"><table><tr><td class="code"><pre><div class="line">deploy:</div><div class="line">  <span class="built_in">type</span>: git</div><div class="line">  repository: git@github.com:waarm/waarm.github.io.git</div><div class="line">  branch: master</div></pre></td></tr></table></figure>
+<p> (<strong>注意</strong>：<code>_config.yml</code> 全局配置文件，该文件格式要求极为严格，缺少一个空格都会导致运行错误。不要使用<code>Tab</code>缩进，两个空格符，冒号<code>：</code>后面只用一个空格即可 。)</p>
 </li>
-<li><p><code>$ npm install hexo-deployer-git --save</code></p>
-</li>
-<li><code>hexo d</code><br>(<strong>注意</strong>：<code>_config.yml</code> 全局配置文件，该文件格式要求极为严格，缺少一个空格都会导致运行错误。不要使用<code>Tab</code>缩进，两个空格符，冒号<code>：</code>后面只用一个空格即可 。)</li>
+<li><code>$ npm install hexo-deployer-git --save</code></li>
+<li><code>$ hexo d</code></li>
+<li>部署成功后，即可通过你的Github Pages仓库地址来访问我们的博客啦，例如我的地址是<a href="waarm.github.io">waarm.github.io</a></li>
+<li>大功告成！</li>
 </ol>
 
           
