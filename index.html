@@ -85,11 +85,11 @@
 
 
 <meta property="og:type" content="website">
-<meta property="og:title" content="Hexo">
-<meta property="og:url" content="http://yoursite.com/index.html">
-<meta property="og:site_name" content="Hexo">
+<meta property="og:title" content="求索">
+<meta property="og:url" content="http://waarm.cn/index.html">
+<meta property="og:site_name" content="求索">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Hexo">
+<meta name="twitter:title" content="求索">
 
 
 
@@ -110,9 +110,9 @@
 
 
 
-  <link rel="canonical" href="http://yoursite.com/"/>
+  <link rel="canonical" href="http://waarm.cn/"/>
 
-  <title> Hexo </title>
+  <title> 求索 </title>
 </head>
 
 <body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
@@ -145,7 +145,7 @@
   <div class="custom-logo-site-title">
     <a href="/"  class="brand" rel="start">
       <span class="logo-line-before"><i></i></span>
-      <span class="site-title">Hexo</span>
+      <span class="site-title">求索</span>
       <span class="logo-line-after"><i></i></span>
     </a>
   </div>
@@ -177,22 +177,22 @@
         </li>
       
         
+        <li class="menu-item menu-item-categories">
+          <a href="/categories" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br />
+            
+            分类
+          </a>
+        </li>
+      
+        
         <li class="menu-item menu-item-archives">
           <a href="/archives" rel="section">
             
               <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
             
             归档
-          </a>
-        </li>
-      
-        
-        <li class="menu-item menu-item-tags">
-          <a href="/tags" rel="section">
-            
-              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
-            
-            标签
           </a>
         </li>
       
@@ -236,7 +236,7 @@
               
                 
                 <a class="post-title-link" href="/2016/09/23/Hello/" itemprop="url">
-                  Hello
+                  Hexo + Github Pages搭建博客教程
                 </a>
               
             
@@ -255,8 +255,34 @@
           </span>
 
           
+            <span class="post-category" >
+              &nbsp; | &nbsp;
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+              
+                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
+                  <a href="/categories/教程/" itemprop="url" rel="index">
+                    <span itemprop="name">教程</span>
+                  </a>
+                </span>
+
+                
+                
+
+              
+            </span>
+          
 
           
+            
+              <span class="post-comments-count">
+                &nbsp; | &nbsp;
+                <a href="/2016/09/23/Hello/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2016/09/23/Hello/" itemprop="commentsCount"></span>
+                </a>
+              </span>
             
           
 
@@ -279,8 +305,7 @@
       
         
           
-            <p>yyyyyyyyyyyyyy</p>
-<h2 id="系统环境配置"><a href="#系统环境配置" class="headerlink" title="系统环境配置"></a>系统环境配置</h2><p>要使用Hexo，需要在你的系统中安装Nodejs以及Git。<br><strong>安装Node.js</strong><br><a href="http://www.runoob.com/nodejs/nodejs-install-setup.html" target="_blank" rel="external">安装教程</a><br><strong>安装Git</strong><br><a href="https://git-scm.com/downloads" target="_blank" rel="external">下载地址</a></p>
+            <h2 id="系统环境配置"><a href="#系统环境配置" class="headerlink" title="系统环境配置"></a>系统环境配置</h2><p>要使用Hexo，需要在你的系统中安装Nodejs以及Git。<br><strong>安装Node.js</strong><br><a href="http://www.runoob.com/nodejs/nodejs-install-setup.html" target="_blank" rel="external">安装教程</a><br><strong>安装Git</strong><br><a href="https://git-scm.com/downloads" target="_blank" rel="external">下载地址</a></p>
 <h2 id="安装及初始化Hexo"><a href="#安装及初始化Hexo" class="headerlink" title="安装及初始化Hexo"></a>安装及初始化Hexo</h2><p>现在打开我们安装好的Git bash：<br><figure class="highlight bash"><table><tr><td class="code"><pre><div class="line">$ npm install -g hexo-cli</div><div class="line">$ <span class="built_in">cd</span> E:</div><div class="line">$ hexo init Hexo</div><div class="line">$ <span class="built_in">cd</span> Hexo</div><div class="line">$ npm install</div><div class="line">$ hexo g</div><div class="line">$ hexo s</div></pre></td></tr></table></figure></p>
 <p>好了，如果一切安装顺利的话，此刻，打开你的浏览器，地址栏输入:<code>localhost:4000</code>就可以看到默认生成的博客了！</p>
 <p>解释一下Hexo常用的几个命令：</p>
@@ -306,7 +331,7 @@
 </ol>
 <h2 id="使用hexo-deploy部署到Github"><a href="#使用hexo-deploy部署到Github" class="headerlink" title="使用hexo deploy部署到Github"></a>使用hexo deploy部署到Github</h2><ol>
 <li><p>修改站点的-config.yml文件如下：</p>
-<figure class="highlight bash"><table><tr><td class="code"><pre><div class="line">deploy:</div><div class="line">  <span class="built_in">type</span>: git</div><div class="line">  repository: git@github.com:waarm/waarm.github.com.git</div><div class="line">  branch: master</div></pre></td></tr></table></figure>
+<figure class="highlight bash"><table><tr><td class="code"><pre><div class="line">deploy:</div><div class="line">  <span class="built_in">type</span>: git</div><div class="line">  repository: git@github.com:waarm/waarm.github.io.git</div><div class="line">  branch: master</div></pre></td></tr></table></figure>
 </li>
 <li><p><code>$ npm install hexo-deployer-git --save</code></p>
 </li>
@@ -387,6 +412,13 @@
           </div>
 
           
+            <div class="site-state-item site-state-categories">
+              <a href="/categories">
+                <span class="site-state-item-count">1</span>
+                <span class="site-state-item-name">分类</span>
+              </a>
+            </div>
+          
 
           
 
@@ -395,6 +427,26 @@
         
 
         <div class="links-of-author motion-element">
+          
+            
+              <span class="links-of-author-item">
+                <a href="https://github.com/waarm" target="_blank" title="GitHub">
+                  
+                    <i class="fa fa-fw fa-github"></i>
+                  
+                  GitHub
+                </a>
+              </span>
+            
+              <span class="links-of-author-item">
+                <a href="http://weibo.com/3919897273" target="_blank" title="Weibo">
+                  
+                    <i class="fa fa-fw fa-weibo"></i>
+                  
+                  Weibo
+                </a>
+              </span>
+            
           
         </div>
 
@@ -440,6 +492,22 @@
 </div>
 
         
+
+<div class="busuanzi-count">
+
+  <script async src="https://dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+  
+    <span class="site-uv"><i class="fa fa-user"></i><span class="busuanzi-value" id="busuanzi_value_site_uv"></span></span>
+  
+
+  
+    <span class="site-pv"><i class="fa fa-eye"></i><span class="busuanzi-value" id="busuanzi_value_site_pv"></span></span>
+  
+  
+</div>
+
+
 
         
       </div>
@@ -512,9 +580,30 @@
 
   
 
+  
+    
+  
 
+  <script type="text/javascript">
+    var duoshuoQuery = {short_name:"waarm"};
+    (function() {
+      var ds = document.createElement('script');
+      ds.type = 'text/javascript';ds.async = true;
+      ds.id = 'duoshuo-script';
+      ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+      ds.charset = 'UTF-8';
+      (document.getElementsByTagName('head')[0]
+      || document.getElementsByTagName('body')[0]).appendChild(ds);
+    })();
+  </script>
 
   
+    
+    <script src="/vendors/ua-parser-js/dist/ua-parser.min.js?v=0.7.9"></script>
+    <script src="/js/src/hook-duoshuo.js"></script>
+  
+
+
 
 
 
