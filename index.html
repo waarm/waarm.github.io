@@ -308,88 +308,21 @@
       
         
           
-            <h1 id="数组的创建方式："><a href="#数组的创建方式：" class="headerlink" title="数组的创建方式："></a>数组的创建方式：</h1><p>创建数组的基本方式有两种：</p>
-<h2 id="1-使用Array构造函数："><a href="#1-使用Array构造函数：" class="headerlink" title="1. 使用Array构造函数："></a>1. 使用Array构造函数：</h2><ul>
-<li><code>var colors = new Array();</code></li>
-<li><code>var colors = new Array(20) // 传入数字参数的话，则该数量会自动变成length属性的值，数组中的每一项初始值为undefined</code></li>
-<li><code>var colors = new Array(&#39;red&#39;,&#39;green&#39;,&#39;blue&#39;);</code>  </li>
-</ul>
-<h2 id="2-使用数组字面量表示法"><a href="#2-使用数组字面量表示法" class="headerlink" title="2. 使用数组字面量表示法"></a>2. 使用数组字面量表示法</h2><ul>
-<li><code>var colors = [&#39;red&#39;,&#39;green&#39;,&#39;blue&#39;]; // 创建一个包含3个字符串的数组</code></li>
-<li><code>var names = [];         // 创建一个空数组</code></li>
-<li><code>var values = [1,2,];    // 不要这样！这样会创建一个包含2或3(IE8及之前)项的数组</code></li>
-<li><code>var options = [,,,,,]   // 不要这样！这样会创建一个包含5或6(IE8及之前)项的数组</code>  </li>
-</ul>
-<p><strong>在读取和设置数组的值时，要使用方括号并提供相应值的基于0的数字索引：</strong><br><figure class="highlight plain"><table><tr><td class="code"><pre><div class="line">var colors = [&apos;red&apos;,&apos;green&apos;,&apos;blue&apos;];</div><div class="line">alert(colors[0]);    // 显示第一项</div><div class="line">colors[2] = &apos;black&apos;  // 修改第三项</div><div class="line">colors[3] = &apos;brown&apos;  // 新增第四项</div></pre></td></tr></table></figure></p>
-<p><strong>数组的项数保存在其length属性中，这个属性始终会返回大于等于0的值：</strong><br><figure class="highlight plain"><table><tr><td class="code"><pre><div class="line">var colors = [&apos;red&apos;,&apos;green&apos;,&apos;blue&apos;];</div><div class="line">var names = [];</div><div class="line"></div><div class="line">alert(colors.length);     // 3</div><div class="line">alert(names.lenght);      // 0</div></pre></td></tr></table></figure></p>
-<p><strong>数组的length属性不是只读的。因此，通过设置这个属性，可以从数组的末尾移除项或向数组中添加新项：</strong><br><figure class="highlight plain"><table><tr><td class="code"><pre><div class="line">var colors = [&apos;red&apos;,&apos;green&apos;,&apos;blue&apos;];</div><div class="line">colors.length = 2;    </div><div class="line">alert(colors[2]);     // underfined</div></pre></td></tr></table></figure></p>
-<p><strong>如果将length属性设置为大于数组项数的值，则新增的每一项都会取得underfined值：</strong><br><figure class="highlight plain"><table><tr><td class="code"><pre><div class="line">var colors = [&apos;red&apos;,&apos;green&apos;,&apos;blue&apos;];</div><div class="line">colors.length = 4;</div><div class="line">alert(colors[3]);    // underfined</div></pre></td></tr></table></figure></p>
-<p><strong>利用length属性也可以方便的在数组末尾添加新项：</strong><br><figure class="highlight plain"><table><tr><td class="code"><pre><div class="line">var colors = [&apos;red&apos;.&apos;green&apos;,&apos;blue&apos;];</div><div class="line">colors[colors.length] = &apos;black&apos;;  // 在位置3添加一种颜色</div><div class="line">colors[colors.length] = &apos;brown&apos;;  // 在位置4添加一种颜色</div></pre></td></tr></table></figure></p>
-<p><strong>当把一个值放在超出当前数组大小的位置上时，数组就会重新计算其长度值，即长度值等于最后一项的索引加1：</strong><br><figure class="highlight plain"><table><tr><td class="code"><pre><div class="line">var colors = [&apos;red&apos;,&apos;green&apos;,&apos;blue&apos;];</div><div class="line">colors[99] = &apos;black&apos;;</div><div class="line">alert(colors.length);   // 100,位置3到98实际上都是不存在的，所以访问它们都将返回undefined</div></pre></td></tr></table></figure></p>
-<h1 id="检测数组"><a href="#检测数组" class="headerlink" title="检测数组"></a>检测数组</h1><p>对于一个网页，或者一个全局作用域而言，使用<code>instanceof</code>操作符就能得到满意的结果：<br><figure class="highlight plain"><table><tr><td class="code"><pre><div class="line">if (value instanceof Array)&#123;</div><div class="line">    // 对数组执行某些操作</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
-<p>instanceof操作符的问题在于，它假定只有一个全局执行环境。如果网页中包含多个框架，那实际上就存在两个以上不同的全局执行环境，从而存在两个以上不同版本的Array构造函数。如果你从一个框架向另一个框架传入一个数组，那么传入的数组与在第二个框架中原生创建的数组分别具有各自不同的构造函数。<br>为了解决这个问题，ECMAScript5新增了 Array.isArray()方法。这个方法的目的是最终确定某个值到底是不是数组，而不管它是在哪个全局执行环境中创建的：<br><figure class="highlight plain"><table><tr><td class="code"><pre><div class="line">if (Array.isArray(value))&#123;</div><div class="line">    // 对数组执行某些操作</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
-<h1 id="数组方法"><a href="#数组方法" class="headerlink" title="数组方法"></a>数组方法</h1><h2 id="1-栈方法"><a href="#1-栈方法" class="headerlink" title="1. 栈方法"></a>1. 栈方法</h2><p>栈是一种LIFO(Last-In-First-Out,后进先出)的数据结构</p>
-<ul>
-<li><strong><code>push()</code>方法可以接收任意数量的参数，把它们逐个添加到数组末尾，并返回修改后数组的长度。</strong></li>
-<li><strong><code>pop()</code>方法则从数组末尾移除最后一项，减少数组的length值，然后返回移除的项：</strong></li>
-</ul>
-<figure class="highlight plain"><table><tr><td class="code"><pre><div class="line">var colors = new Array();</div><div class="line">var count = colors.push(&apos;red&apos;,&apos;green&apos;);  // 推入两项</div><div class="line">alert(count);   // 2</div><div class="line"></div><div class="line">count = colors.push(&apos;black&apos;)             // 推入另一项</div><div class="line">alert(count)    // 3</div><div class="line"></div><div class="line">var item = colors.pop()                  // 取得最后一项</div><div class="line">alert(item);    // &apos;black&apos;</div><div class="line">alert(colors.length);  // 2</div></pre></td></tr></table></figure>
-<p>可以将栈方法和其它方法连用：<br><figure class="highlight plain"><table><tr><td class="code"><pre><div class="line">var colors = [&apos;red&apos;,&apos;green&apos;];</div><div class="line">colors.push(&apos;brown&apos;);   // 添加另一项</div><div class="line">colors[3] = &apos;black&apos;;    // 添加一项</div><div class="line">alert(colors.length);   // 4</div><div class="line"></div><div class="line">var item = colors.pop(); // 取得最后一项</div><div class="line">alert(item)  // &apos;black&apos;</div></pre></td></tr></table></figure></p>
-<h2 id="2-队列方法"><a href="#2-队列方法" class="headerlink" title="2. 队列方法"></a>2. 队列方法</h2><p>队列数据结构的访问规则是FIFO(First-In-First-Out,先进先出)</p>
-<ul>
-<li><strong><code>shift()</code>方法能够移除数组中的第一个项并返回该项，同时将数组长度减1：</strong></li>
-</ul>
-<figure class="highlight plain"><table><tr><td class="code"><pre><div class="line">var colors = new Array();</div><div class="line">var count = colors.push(&apos;red&apos;,&apos;green&apos;);  // 推入两项</div><div class="line">alert(count);   // 2</div><div class="line"></div><div class="line">count = colors.push(&apos;black&apos;);   // 推入另一项</div><div class="line">alert(count)  // 3</div><div class="line"></div><div class="line">var item = colors.shift();   // 取得第一项</div><div class="line">alert(item)   // &apos;red&apos; </div><div class="line">alert(colors.length);  // 2</div></pre></td></tr></table></figure>
-<ul>
-<li><strong><code>unshift()</code>方法在数组前端添加任意个项并返回新数组的长度：</strong></li>
-</ul>
-<figure class="highlight plain"><table><tr><td class="code"><pre><div class="line">var colors = new Array();</div><div class="line">var count = colors.unshift(&apos;red&apos;,&apos;green&apos;);   // 推入两项</div><div class="line">alert(count);   // 2</div><div class="line">count = colors.unshift(&apos;black&apos;);   // 推入另一项</div><div class="line">alert(count);   // 3</div><div class="line"></div><div class="line">var item = colors.pop();    // 取得最后一项</div><div class="line">alert(item);   // &apos;green&apos;</div><div class="line">alert(colors.length);   // 2</div></pre></td></tr></table></figure>
-<p><strong>总结：</strong><br><code>push()/unshift()</code>在数组末尾/前端添加任意个项并返回新数组的长度;<br><code>pop()/shift()</code>移除数组中的最后/第一项并返回该项，同时将数组长度减1。</p>
-<h2 id="3-重排序方法"><a href="#3-重排序方法" class="headerlink" title="3. 重排序方法"></a>3. 重排序方法</h2><ul>
-<li><strong><code>reverse()</code> 反转数组项的顺序：</strong></li>
-</ul>
-<figure class="highlight plain"><table><tr><td class="code"><pre><div class="line">var value = [1,2,3,4,5];</div><div class="line">values.reserse();</div><div class="line">alert(value);     // 5,4,3,2,1</div></pre></td></tr></table></figure>
-<ul>
-<li><strong><code>sort()</code> 在默认情况下，sort()方法按升序排列数组项——即最小的值位于最前面，最大的值排在最后面。为了实现排序，sort()方法会调用每个数组项的toString()转型方法，然后比较得到的字符串，以确定如何排序。即使数组中的每一项都是数值，sort()方法比较的也是字符串：</strong></li>
-</ul>
-<figure class="highlight plain"><table><tr><td class="code"><pre><div class="line">var values = [0,1,5,10,15];</div><div class="line">values.sort();</div><div class="line">alert(values);   // 0,1,10,15,5</div></pre></td></tr></table></figure>
-<p>因此sort()方法可以接收一个比较函数作为参数，以便我们指定哪个值位于哪个值的前面。<br>比较函数接收两个参数，如果第一个参数应该位于第二个之前则返回一个负数，如果两个参数相等则返回0，如果第一个参数应该位于第二个参数之后则返回一个正数：</p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><div class="line">function compare(value1,value2)&#123;</div><div class="line">    if(value1&lt;value2)&#123;</div><div class="line">        return -1;</div><div class="line">    &#125;else if(value1&gt;value2)&#123;</div><div class="line">        return 1;</div><div class="line">    &#125;else&#123;</div><div class="line">        return 0;</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
-<p>这个比较函数可以适用于大多数数据类型，只要将其作为参数传递给sort()方法即可：</p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><div class="line">var values = [0,1,5,10,15];</div><div class="line">values.sort(compare);</div><div class="line">alert(values);   // 0,1,5,10,15</div></pre></td></tr></table></figure>
-<p>在将比较函数传递到sort()方法之后，数值仍然保持了正确的升序。当然，也可以通过比较函数产生降序的结果，只要交换比较函数返回的值即可：</p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><div class="line">function compare(value1,value2)&#123;</div><div class="line">    if(value1&lt;value2)&#123;</div><div class="line">        return 1;</div><div class="line">    &#125;else if(value1&gt;value2)&#123;</div><div class="line">        return -1;</div><div class="line">    &#125;else&#123;</div><div class="line">        return 0;</div><div class="line">    &#125;</div><div class="line">&#125;</div><div class="line"></div><div class="line">var values = [0,1,5,10,15];</div><div class="line">values.sort(compare);</div><div class="line">alert(values);   // 15,10,5,1,0</div></pre></td></tr></table></figure>
-<p><strong>reservse()和sort()方法的的返回值是经过排序之后的数组。</strong></p>
-<p>对于数值类型或者其valueOf()方法会返回数值类型的对象类型，可以使用一个更简单地比较函数。这个函数只要用第二个减第一个值即可：</p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><div class="line">function compare(value1,value2)&#123;</div><div class="line">    return calue1 - value2;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
-<p>由于比较函数通过返回一个小于0，等于0或大于0的值来影响排序结果，因此剪发操作就可以适当地处理所有这些情况。</p>
-<h2 id="4-操作方法"><a href="#4-操作方法" class="headerlink" title="4. 操作方法"></a>4. 操作方法</h2><ul>
-<li><strong><code>concat()</code> 基于当前数组中的所有项创建一个新数组。具体来说，这个方法会先创建当前数组的一个副本，然后将接收到的参数添加到这个副本的末尾，最后返回新构建的数组。在没有给concat()方法传递参数的情况下，它只是复制当前数组并返回副本。如果传递给concat()方法的是一或多个数组，则该方法会将这些数组中的每一项都添加到结果数组中。如果传递的值不是数组，这些值就会简单地添加到结果数组的末尾：</strong></li>
-</ul>
-<figure class="highlight plain"><table><tr><td class="code"><pre><div class="line">var colors = [&apos;red&apos;,&apos;green&apos;,&apos;blue&apos;];</div><div class="line">var colors2 = colors.concat(&apos;yellow&apos;,[&apos;black&apos;,&apos;brown&apos;]);</div><div class="line"></div><div class="line">alert(colors);    // red,green,blue</div><div class="line">alert(colors2);   // red,green,blue,yellow,black,brown</div></pre></td></tr></table></figure>
-<ul>
-<li><strong><code>slice()</code> 基于当前数组中的一或多个项创建一个新数组。slice()方法可以接收一或两个参数，即要返回项的起始和结束位置。在只有一个参数的情况下，slice()方法返回从该参数指定位置开始到当前数组末尾的所有项。如果有两个参数，则该方法返回起始和结束位置之间的项——但不包括结束位置的项。</strong>  </li>
-</ul>
-<p><strong>注意：</strong>slice()方法不会影响原始数组：</p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><div class="line">var colors = [&apos;red&apos;,&apos;green&apos;,&apos;blue&apos;,&apos;yellow&apos;,&apos;purple&apos;];</div><div class="line">var colors2 = colors.slice(1);</div><div class="line">var clors3 = colors.slice(1,4);</div><div class="line"></div><div class="line">alert(colors2);    // green,blue,yellow,purple</div><div class="line">alert(colors3);    // green,blue,yellow</div></pre></td></tr></table></figure>
-<p>如果slice()方法的参数中有一个负数，则用数组长度加上该数来确定相应的位置。例如，在一个包含5项的数组上调用slice(-2,-1)与调用slice(3,4)得到的结果相同。如果结束位置小于起始位置，则返回空数组。 </p>
-<ul>
-<li><strong><code>splice()</code>该方法主要用途是向数组的中部插入项，但使用这种方法的方式则有如下3种：</strong><ul>
-<li>删除：可以删除任意数量的项，只需指定2个参数：要删除的第一项的位置和要删除的项数。</li>
-<li>插入：可以向指定位置插入多个项，可以只需提供3个参数：起始位置、0(要删除的项数)和要插入的项。如果要插入多个项，可以再传入第四、第五，甚至任意多个项。例如，splice(2,0,’red’,’green’)会从当前数组的位置2开始插入字符串’red’,’green’。</li>
-<li>替换：可以向指定位置插入任意数量的项，且同时删除任意数量的项，只需指定3个参数：起始位置、要删除的项数和要插入的任意数量的项。插入的项数不必与删除的项数相等。例如，splice(2,1,’red’,’green’)会删除当前数字位置2的项，然后再从位置2开始插入字符串’red’和’green’。</li>
-</ul>
-</li>
-</ul>
-<p><strong>splice()方法始终都会返回一个数组，该数组包含从原始数组中删除的项（如果没有删除任何项，则返回一个空数组）：</strong></p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><div class="line">var colors = [&apos;red&apos;,&apos;green&apos;,&apos;blue&apos;];</div><div class="line">var removed = colors.splice(0,1);   // 删除第一项</div><div class="line">alert(colors);   // green,blue</div><div class="line">alert(removed);  // red,返回的数组中只包含一项</div><div class="line"></div><div class="line">removed = colors.splice(1,0,&apos;yellow&apos;,&apos;orange&apos;);  // 从位置1开始插入两项</div><div class="line">alert(colors);   // green,yellow,orange,blue   </div><div class="line">alert(removed);  // 返回的是一个空数组</div><div class="line"></div><div class="line">removed = colors.splice(1,1,&apos;red&apos;,&apos;purple&apos;);     // 插入两项，删除一项</div><div class="line">alert(colors);   // green,red,purple,orange,blue</div><div class="line">alert(removed);  // yellow,返回的数组中只包含一项</div></pre></td></tr></table></figure>
-<h2 id="5-位置方法"><a href="#5-位置方法" class="headerlink" title="5. 位置方法"></a>5. 位置方法</h2><ul>
-<li><code>indexOf()</code></li>
-<li><code>lastIndexOf()</code></li>
-</ul>
-<p><strong>这两个方法都接收两个参数：要查找的项和(可选的)表示查找起点位置的索引。其中，indexOf()方法从数组的开头开始向后查找，lastIndexOf()方法则从数组的末尾开始向前查找。<br>这两个方法都返回要查找的项在数组中的位置，或者在没找到的情况下返回-1.在比较第一个参数与数组中的每一项时，会使用全等操作符；也就是说，要求查找的项必须严格相等(就像使用===一样)：</strong></p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><div class="line">var numbers = [1,2,3,4,5,4,3,2,1];</div><div class="line"></div><div class="line">alert(numbers.indexOf(4));      // 3</div><div class="line">alert(numbers.lastIndexOf(4));  // 5</div><div class="line"></div><div class="line">var people = [&#123;name: &apos;Nicholas&apos;&#125;];</div><div class="line">var person = &#123;name: &quot;Nicholas&quot;&#125;;</div><div class="line"></div><div class="line">var morePeople = [person];</div><div class="line"></div><div class="line">alert(people.indexOf(person));      // -1</div><div class="line">alert(morePeople.indexOf(person));  // 0</div></pre></td></tr></table></figure>
-          
+          数组的创建方式：创建数组的基本方式有两种：
+1. 使用Array构造函数：
+var colors = new Array();
+var colors = new Array(20) // 传入数字参数的话，则该数量会自动变成length属性的值，数组中的每一项初始值为undefined
+var colors = new Array(&#39;red&#39;,&#39;green&#39;,&#39;blue&#39;);  
+
+2. 使用数组字面量表示法
+var colors = [&#39;
+          ...
+
+          <div class="post-more-link text-center">
+            <a class="btn" href="/2016/11/20/JavaScript数组/#more" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
         
       
     </div>
@@ -507,73 +440,21 @@
       
         
           
-            <h2 id="工具准备"><a href="#工具准备" class="headerlink" title="工具准备"></a>工具准备</h2><p>要使用Hexo，需要在你的系统中安装Nodejs以及Git。</p>
-<ul>
-<li><strong>安装Node.js</strong><br><a href="http://www.runoob.com/nodejs/nodejs-install-setup.html" target="_blank" rel="external">安装教程</a></li>
-<li><strong>安装Git</strong><br><a href="https://git-scm.com/downloads" target="_blank" rel="external">下载地址</a></li>
-</ul>
-<h2 id="安装Hexo"><a href="#安装Hexo" class="headerlink" title="安装Hexo"></a>安装Hexo</h2><p>现在打开我们安装好的Git bash：<br><figure class="highlight bash"><table><tr><td class="code"><pre><div class="line">$ npm install -g hexo-cli</div><div class="line">$ <span class="built_in">cd</span> E:</div><div class="line">$ hexo init Hexo</div><div class="line">$ <span class="built_in">cd</span> Hexo</div><div class="line">$ npm install</div><div class="line">$ hexo g</div><div class="line">$ hexo s</div></pre></td></tr></table></figure></p>
-<p>好了，如果一切安装顺利的话，此刻，打开你的浏览器，地址栏输入:<code>localhost:4000</code>就可以看到默认生成的博客了！如下图：<br><img src="http://odyf4frh9.bkt.clouddn.com/blog0101.png" alt=""></p>
-<p>解释一下Hexo常用的几个命令：</p>
-<ol>
-<li><code>$ hexo g</code>(hexo generate) #生成静态文件，会在当前目录下生成一个新的叫做public的文件夹;</li>
-<li><code>$ hexo s</code>(hexo server) #启动本地web服务，用于博客的预览,默认地址为<a href="http://localhost:4000/" target="_blank" rel="external">http://localhost:4000/</a>;</li>
-<li><code>$ hexo d</code>(hexo deploy) #部署博客到远端（比如github等平台）</li>
-<li><code>$ hexo n &quot;postName&quot;</code> #新建文章</li>
-<li><code>$ hexo n page &quot;pageName&quot;</code> #新建页面</li>
-</ol>
-<p>常用简写：<br><figure class="highlight bash"><table><tr><td class="code"><pre><div class="line">$ hexo n  <span class="comment"># hexo new</span></div><div class="line">$ hexo g  <span class="comment"># hexo generate</span></div><div class="line">$ hexo s  <span class="comment"># hexo server</span></div><div class="line">$ hexo d  <span class="comment"># hexo deploy</span></div></pre></td></tr></table></figure></p>
-<p>常用组合：<br><figure class="highlight bash"><table><tr><td class="code"><pre><div class="line">$ hexo d -g <span class="comment">#生成部署</span></div><div class="line">$ hexo s -g <span class="comment">#生成预览</span></div></pre></td></tr></table></figure></p>
-<h2 id="主题修改"><a href="#主题修改" class="headerlink" title="主题修改"></a>主题修改</h2><p>Hexo有许多可选择的主题，参考这儿<a href="https://hexo.io/themes/" target="_blank" rel="external">Hexo主题</a>,这里介绍一款非常流行的主题Next，样式参考本博客。教程如下：</p>
-<p><strong>安装主题</strong><br>(参考<a href="http://theme-next.iissnan.com/getting-started.html" target="_blank" rel="external">官方教程</a>)<br><figure class="highlight bash"><table><tr><td class="code"><pre><div class="line">$ git <span class="built_in">clone</span> https://github.com/iissnan/hexo-theme-next themes/next</div></pre></td></tr></table></figure></p>
-<p><strong>启用主题</strong><br>修改Hexo目录下的<code>_config.yml</code>配置文件中的<code>theme</code>属性，(查找快捷键<code>Ctrl+F</code>)将其设置为<code>next</code>。</p>
-<p><strong>更新主题</strong><br><figure class="highlight bash"><table><tr><td class="code"><pre><div class="line">$ <span class="built_in">cd</span> themes/next</div><div class="line">$ git pull</div><div class="line">$ ../</div><div class="line">$ ../</div><div class="line">$ hexo g </div><div class="line">$ hexo s</div></pre></td></tr></table></figure></p>
-<p>好了，打开浏览器，地址栏输入：<code>localhost：4000</code>预览新主题。如下图：<br><img src="http://odyf4frh9.bkt.clouddn.com/blog0102.png" alt=""></p>
-<h2 id="Github-Pages设置"><a href="#Github-Pages设置" class="headerlink" title="Github Pages设置"></a>Github Pages设置</h2><p><strong>创建自己的Github Pages</strong></p>
-<ol>
-<li>注册一个Github账号：<a href="https://github.com/join" target="_blank" rel="external">Github注册</a></li>
-<li>在GitHub上新建一个仓库repository，注意仓库名称必须为<code>&lt;你的账户名&gt;.github.io</code>,例如我的是<code>waarm.github.io</code>,这里我的由于已经存在这个名称的仓库，所以无法重名。<br><img src="http://odyf4frh9.bkt.clouddn.com/blog0103.png" alt=""><br><img src="http://odyf4frh9.bkt.clouddn.com/blog0104.png" alt=""></li>
-<li>启用自动生成：到我们刚刚新建的仓库页面，点击<code>Settings</code>,找到<code>Launch automatic page generator</code>，点击，继续点击<code>Continue to layout</code>,最后<code>publish page</code>。OK,现在打开浏览器，输入你新建的仓库地址，例如我的是<code>waarm.github.io</code>，就可以看到刚才自动生成的页面了。<br><img src="http://odyf4frh9.bkt.clouddn.com/blog0105.png" alt=""><br><img src="http://odyf4frh9.bkt.clouddn.com/blog0106.png" alt=""></li>
-</ol>
-<h2 id="SSH-Key配置"><a href="#SSH-Key配置" class="headerlink" title="SSH Key配置"></a>SSH Key配置</h2><p><strong>生成SSH Key</strong></p>
-<ul>
-<li>首先我们需要检查你电脑上现有的ssh key：</li>
-</ul>
-<figure class="highlight plain"><table><tr><td class="code"><pre><div class="line">$ cd ~/.ssh</div></pre></td></tr></table></figure>
-<p>如果提示：No such file or directory 说明你是第一次使用git。</p>
-<ul>
-<li>生成新的SSH Key</li>
-</ul>
-<figure class="highlight plain"><table><tr><td class="code"><pre><div class="line">$ ssh-keygen -t rsa -C &quot;你的邮箱地址&quot;</div><div class="line">Generrating public/private rsa key pair.</div><div class="line">Enter file in which to save the key (/Users/your_user_directory/.ssh/id_rsa):回车就好</div></pre></td></tr></table></figure>
-<ul>
-<li>然后系统会要你输入密码：</li>
-</ul>
-<figure class="highlight plain"><table><tr><td class="code"><pre><div class="line">Enter passphase (empty for nopassphase):&lt;输入密码&gt;</div><div class="line">Enter same passphase again:&lt;确认密码&gt;</div></pre></td></tr></table></figure>
-<p>这个密码是你之后将项目部署到到远端(如Github)时需要用到的密码，如果为空的话提交项目时则不用输入，这个设置是防止别人往你的项目里提交内容。(<strong>注意</strong>：输入密码的时候是没有  <code>*</code>字样的，直接输入就行。)</p>
-<ul>
-<li>最后看到这样的界面，表示成功设置ssh key了。<br>  <img src="http://odyf4frh9.bkt.clouddn.com/blog0107.jpg" alt=""></li>
-</ul>
-<p><strong>添加SSH Key到Github</strong></p>
-<p>在本机设置SSH Key之后，需要添加到GitHub上，以完成SSH链接的设置。</p>
-<ul>
-<li>资源管理器中找到<code>C:\用户\Admin\.ssh\id_rsa.pub</code>文件,此文件里面内容为刚才生成的密钥。如果看不到这个文件，你需要设置显示隐藏文件。复制文件里面的内容。</li>
-<li>登录Github，点击头像下拉框里的<code>Settings</code>,点击左侧的<code>SSH and GPG keys</code>,<code>New SSH key</code>,粘贴刚才复制的内容即可。</li>
-</ul>
-<p><strong>测试SSH Key是否设置添加成功</strong><br><figure class="highlight plain"><table><tr><td class="code"><pre><div class="line">$ ssh -T git@github.com</div></pre></td></tr></table></figure></p>
-<p>显示如下：<br><figure class="highlight plain"><table><tr><td class="code"><pre><div class="line">The authenticity of host &apos;github.com (207.97.227.239)&apos; can&apos;t be established.</div><div class="line">RSA key fingerprint is 16:27:ac:a5:76:28:2d:36:63:1b:56:4d:eb:df:a6:48.</div><div class="line">Are you sure you want to continue connecting (yes/no)?</div></pre></td></tr></table></figure></p>
-<p>输入<code>yes</code>,看到<code>Hi aierui! You’ve successfully authenticated, but GitHub does not provide shell access.</code>表示添加成功。</p>
-<h2 id="部署到Github"><a href="#部署到Github" class="headerlink" title="部署到Github"></a>部署到Github</h2><ol>
-<li><p>修改站点的-config.yml文件如下：</p>
-<figure class="highlight bash"><table><tr><td class="code"><pre><div class="line">deploy:</div><div class="line">  <span class="built_in">type</span>: git</div><div class="line">  repository: git@github.com:waarm/waarm.github.io.git</div><div class="line">  branch: master</div></pre></td></tr></table></figure>
-<p> (<strong>注意</strong>：<code>_config.yml</code> 全局配置文件，该文件格式要求极为严格，缺少一个空格都会导致运行错误。不要使用<code>Tab</code>缩进，两个空格符，冒号<code>：</code>后面只用一个空格即可 。)</p>
-</li>
-<li><code>$ npm install hexo-deployer-git --save</code></li>
-<li><code>$ hexo d</code></li>
-<li>部署成功后，即可通过你的Github Pages仓库地址来访问我们的博客啦，例如我的地址是<a href="waarm.github.io">waarm.github.io</a></li>
-<li>大功告成！</li>
-</ol>
+          工具准备要使用Hexo，需要在你的系统中安装Nodejs以及Git。
 
-          
+安装Node.js安装教程
+安装Git下载地址
+
+安装Hexo现在打开我们安装好的Git bash：$ npm install -g hexo-cli$ cd E:$ hexo init Hexo$ cd Hexo$ npm install$ hexo g$ hexo s
+好了，如果一切安装顺利的话，此刻，打开你的浏览器，地址栏输入:localhost:4000就可以看到默认生成的博客了！如下图：
+解释一下Hexo常用的几个
+          ...
+
+          <div class="post-more-link text-center">
+            <a class="btn" href="/2016/09/23/Hexo + Github Pages搭建博客教程/#more" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
         
       
     </div>
