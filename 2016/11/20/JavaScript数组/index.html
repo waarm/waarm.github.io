@@ -84,15 +84,28 @@
 
 
 
-<meta name="description" content="“张牙舞爪的人，往往是很脆弱的。因为真正强大的人，是自信的，自信就会温和，温和就会坚定。”">
-<meta property="og:type" content="website">
-<meta property="og:title" content="求索">
-<meta property="og:url" content="http://waarm.cn/index.html">
+<meta name="description" content="数组的创建方式：创建数组的基本方式有两种：
+1. 使用Array构造函数：
+var colors = new Array();
+var colors = new Array(20) // 传入数字参数的话，则该数量会自动变成length属性的值，数组中的每一项初始值为undefined
+var colors = new Array(&amp;#39;red&amp;#39;,&amp;#39;green&amp;#39;,&amp;#3">
+<meta property="og:type" content="article">
+<meta property="og:title" content="JavaScript数组">
+<meta property="og:url" content="http://waarm.cn/2016/11/20/JavaScript数组/index.html">
 <meta property="og:site_name" content="求索">
-<meta property="og:description" content="“张牙舞爪的人，往往是很脆弱的。因为真正强大的人，是自信的，自信就会温和，温和就会坚定。”">
+<meta property="og:description" content="数组的创建方式：创建数组的基本方式有两种：
+1. 使用Array构造函数：
+var colors = new Array();
+var colors = new Array(20) // 传入数字参数的话，则该数量会自动变成length属性的值，数组中的每一项初始值为undefined
+var colors = new Array(&amp;#39;red&amp;#39;,&amp;#39;green&amp;#39;,&amp;#3">
+<meta property="og:updated_time" content="2016-11-20T00:44:09.592Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="求索">
-<meta name="twitter:description" content="“张牙舞爪的人，往往是很脆弱的。因为真正强大的人，是自信的，自信就会温和，温和就会坚定。”">
+<meta name="twitter:title" content="JavaScript数组">
+<meta name="twitter:description" content="数组的创建方式：创建数组的基本方式有两种：
+1. 使用Array构造函数：
+var colors = new Array();
+var colors = new Array(20) // 传入数字参数的话，则该数量会自动变成length属性的值，数组中的每一项初始值为undefined
+var colors = new Array(&amp;#39;red&amp;#39;,&amp;#39;green&amp;#39;,&amp;#3">
 
 
 
@@ -113,9 +126,9 @@
 
 
 
-  <link rel="canonical" href="http://waarm.cn/"/>
+  <link rel="canonical" href="http://waarm.cn/2016/11/20/JavaScript数组/"/>
 
-  <title> 求索 </title>
+  <title> JavaScript数组 | 求索 </title>
 </head>
 
 <body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
@@ -136,9 +149,7 @@
     
   
 
-  <div class="container one-collumn sidebar-position-left 
-   page-home 
- ">
+  <div class="container one-collumn sidebar-position-left page-post-detail ">
     <div class="headband"></div>
 
     <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
@@ -215,9 +226,9 @@
         <div class="content-wrap">
           <div id="content" class="content">
             
-  <section id="posts" class="posts-expand">
+
+  <div id="posts" class="posts-expand">
     
-      
 
   
   
@@ -237,10 +248,7 @@
             
             
               
-                
-                <a class="post-title-link" href="/2016/11/20/JavaScript数组/" itemprop="url">
-                  JavaScript数组
-                </a>
+                JavaScript数组
               
             
           </h1>
@@ -295,6 +303,11 @@
           
 
           
+              &nbsp; | &nbsp;
+              <span class="page-pv"><i class="fa fa-file-o"></i>
+              <span class="busuanzi-value" id="busuanzi_value_page_pv" ></span>
+              </span>
+          
         </div>
       </header>
     
@@ -306,9 +319,7 @@
       
 
       
-        
-          
-            <h1 id="数组的创建方式："><a href="#数组的创建方式：" class="headerlink" title="数组的创建方式："></a>数组的创建方式：</h1><p>创建数组的基本方式有两种：</p>
+        <h1 id="数组的创建方式："><a href="#数组的创建方式：" class="headerlink" title="数组的创建方式："></a>数组的创建方式：</h1><p>创建数组的基本方式有两种：</p>
 <h2 id="1-使用Array构造函数："><a href="#1-使用Array构造函数：" class="headerlink" title="1. 使用Array构造函数："></a>1. 使用Array构造函数：</h2><ul>
 <li><code>var colors = new Array();</code></li>
 <li><code>var colors = new Array(20) // 传入数字参数的话，则该数量会自动变成length属性的值，数组中的每一项初始值为undefined</code></li>
@@ -389,16 +400,20 @@
 </ul>
 <p><strong>这两个方法都接收两个参数：要查找的项和(可选的)表示查找起点位置的索引。其中，indexOf()方法从数组的开头开始向后查找，lastIndexOf()方法则从数组的末尾开始向前查找。<br>这两个方法都返回要查找的项在数组中的位置，或者在没找到的情况下返回-1.在比较第一个参数与数组中的每一项时，会使用全等操作符；也就是说，要求查找的项必须严格相等(就像使用===一样)：</strong></p>
 <figure class="highlight plain"><table><tr><td class="code"><pre><div class="line">var numbers = [1,2,3,4,5,4,3,2,1];</div><div class="line"></div><div class="line">alert(numbers.indexOf(4));      // 3</div><div class="line">alert(numbers.lastIndexOf(4));  // 5</div><div class="line"></div><div class="line">var people = [&#123;name: &apos;Nicholas&apos;&#125;];</div><div class="line">var person = &#123;name: &quot;Nicholas&quot;&#125;;</div><div class="line"></div><div class="line">var morePeople = [person];</div><div class="line"></div><div class="line">alert(people.indexOf(person));      // -1</div><div class="line">alert(morePeople.indexOf(person));  // 0</div></pre></td></tr></table></figure>
-          
+      
+    </div>
+
+    <div>
+      
         
+
       
     </div>
 
     <div>
       
-    </div>
+        
 
-    <div>
       
     </div>
 
@@ -406,203 +421,32 @@
       
 
       
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-
-
-    
-      
-
-  
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
             
+              <a href="/2016/09/23/Hexo + Github Pages搭建博客教程/" rel="next" title="Hexo + Github Pages搭建博客教程">
+                <i class="fa fa-chevron-left"></i> Hexo + Github Pages搭建博客教程
+              </a>
             
-              
-                
-                <a class="post-title-link" href="/2016/09/23/Hexo + Github Pages搭建博客教程/" itemprop="url">
-                  Hexo + Github Pages搭建博客教程
-                </a>
-              
+          </div>
+
+          <div class="post-nav-prev post-nav-item">
             
-          </h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            <span class="post-meta-item-icon">
-              <i class="fa fa-calendar-o"></i>
-            </span>
-            <span class="post-meta-item-text">发表于</span>
-            <time itemprop="dateCreated" datetime="2016-09-23T08:23:47+08:00" content="2016-09-23">
-              2016-09-23
-            </time>
-          </span>
-
-          
-            <span class="post-category" >
-              &nbsp; | &nbsp;
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              <span class="post-meta-item-text">分类于</span>
-              
-                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
-                  <a href="/categories/教程/" itemprop="url" rel="index">
-                    <span itemprop="name">教程</span>
-                  </a>
-                </span>
-
-                
-                
-
-              
-            </span>
-          
-
-          
-            
-              <span class="post-comments-count">
-                &nbsp; | &nbsp;
-                <a href="/2016/09/23/Hexo + Github Pages搭建博客教程/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count ds-thread-count" data-thread-key="2016/09/23/Hexo + Github Pages搭建博客教程/" itemprop="commentsCount"></span>
-                </a>
-              </span>
-            
-          
-
-          
-
-          
-          
-
-          
+          </div>
         </div>
-      </header>
-    
-
-
-    <div class="post-body" itemprop="articleBody">
-
-      
       
 
       
-        
-          
-            <h2 id="工具准备"><a href="#工具准备" class="headerlink" title="工具准备"></a>工具准备</h2><p>要使用Hexo，需要在你的系统中安装Nodejs以及Git。</p>
-<ul>
-<li><strong>安装Node.js</strong><br><a href="http://www.runoob.com/nodejs/nodejs-install-setup.html" target="_blank" rel="external">安装教程</a></li>
-<li><strong>安装Git</strong><br><a href="https://git-scm.com/downloads" target="_blank" rel="external">下载地址</a></li>
-</ul>
-<h2 id="安装Hexo"><a href="#安装Hexo" class="headerlink" title="安装Hexo"></a>安装Hexo</h2><p>现在打开我们安装好的Git bash：<br><figure class="highlight bash"><table><tr><td class="code"><pre><div class="line">$ npm install -g hexo-cli</div><div class="line">$ <span class="built_in">cd</span> E:</div><div class="line">$ hexo init Hexo</div><div class="line">$ <span class="built_in">cd</span> Hexo</div><div class="line">$ npm install</div><div class="line">$ hexo g</div><div class="line">$ hexo s</div></pre></td></tr></table></figure></p>
-<p>好了，如果一切安装顺利的话，此刻，打开你的浏览器，地址栏输入:<code>localhost:4000</code>就可以看到默认生成的博客了！如下图：<br><img src="http://odyf4frh9.bkt.clouddn.com/blog0101.png" alt=""></p>
-<p>解释一下Hexo常用的几个命令：</p>
-<ol>
-<li><code>$ hexo g</code>(hexo generate) #生成静态文件，会在当前目录下生成一个新的叫做public的文件夹;</li>
-<li><code>$ hexo s</code>(hexo server) #启动本地web服务，用于博客的预览,默认地址为<a href="http://localhost:4000/" target="_blank" rel="external">http://localhost:4000/</a>;</li>
-<li><code>$ hexo d</code>(hexo deploy) #部署博客到远端（比如github等平台）</li>
-<li><code>$ hexo n &quot;postName&quot;</code> #新建文章</li>
-<li><code>$ hexo n page &quot;pageName&quot;</code> #新建页面</li>
-</ol>
-<p>常用简写：<br><figure class="highlight bash"><table><tr><td class="code"><pre><div class="line">$ hexo n  <span class="comment"># hexo new</span></div><div class="line">$ hexo g  <span class="comment"># hexo generate</span></div><div class="line">$ hexo s  <span class="comment"># hexo server</span></div><div class="line">$ hexo d  <span class="comment"># hexo deploy</span></div></pre></td></tr></table></figure></p>
-<p>常用组合：<br><figure class="highlight bash"><table><tr><td class="code"><pre><div class="line">$ hexo d -g <span class="comment">#生成部署</span></div><div class="line">$ hexo s -g <span class="comment">#生成预览</span></div></pre></td></tr></table></figure></p>
-<h2 id="主题修改"><a href="#主题修改" class="headerlink" title="主题修改"></a>主题修改</h2><p>Hexo有许多可选择的主题，参考这儿<a href="https://hexo.io/themes/" target="_blank" rel="external">Hexo主题</a>,这里介绍一款非常流行的主题Next，样式参考本博客。教程如下：</p>
-<p><strong>安装主题</strong><br>(参考<a href="http://theme-next.iissnan.com/getting-started.html" target="_blank" rel="external">官方教程</a>)<br><figure class="highlight bash"><table><tr><td class="code"><pre><div class="line">$ git <span class="built_in">clone</span> https://github.com/iissnan/hexo-theme-next themes/next</div></pre></td></tr></table></figure></p>
-<p><strong>启用主题</strong><br>修改Hexo目录下的<code>_config.yml</code>配置文件中的<code>theme</code>属性，(查找快捷键<code>Ctrl+F</code>)将其设置为<code>next</code>。</p>
-<p><strong>更新主题</strong><br><figure class="highlight bash"><table><tr><td class="code"><pre><div class="line">$ <span class="built_in">cd</span> themes/next</div><div class="line">$ git pull</div><div class="line">$ ../</div><div class="line">$ ../</div><div class="line">$ hexo g </div><div class="line">$ hexo s</div></pre></td></tr></table></figure></p>
-<p>好了，打开浏览器，地址栏输入：<code>localhost：4000</code>预览新主题。如下图：<br><img src="http://odyf4frh9.bkt.clouddn.com/blog0102.png" alt=""></p>
-<h2 id="Github-Pages设置"><a href="#Github-Pages设置" class="headerlink" title="Github Pages设置"></a>Github Pages设置</h2><p><strong>创建自己的Github Pages</strong></p>
-<ol>
-<li>注册一个Github账号：<a href="https://github.com/join" target="_blank" rel="external">Github注册</a></li>
-<li>在GitHub上新建一个仓库repository，注意仓库名称必须为<code>&lt;你的账户名&gt;.github.io</code>,例如我的是<code>waarm.github.io</code>,这里我的由于已经存在这个名称的仓库，所以无法重名。<br><img src="http://odyf4frh9.bkt.clouddn.com/blog0103.png" alt=""><br><img src="http://odyf4frh9.bkt.clouddn.com/blog0104.png" alt=""></li>
-<li>启用自动生成：到我们刚刚新建的仓库页面，点击<code>Settings</code>,找到<code>Launch automatic page generator</code>，点击，继续点击<code>Continue to layout</code>,最后<code>publish page</code>。OK,现在打开浏览器，输入你新建的仓库地址，例如我的是<code>waarm.github.io</code>，就可以看到刚才自动生成的页面了。<br><img src="http://odyf4frh9.bkt.clouddn.com/blog0105.png" alt=""><br><img src="http://odyf4frh9.bkt.clouddn.com/blog0106.png" alt=""></li>
-</ol>
-<h2 id="SSH-Key配置"><a href="#SSH-Key配置" class="headerlink" title="SSH Key配置"></a>SSH Key配置</h2><p><strong>生成SSH Key</strong></p>
-<ul>
-<li>首先我们需要检查你电脑上现有的ssh key：</li>
-</ul>
-<figure class="highlight plain"><table><tr><td class="code"><pre><div class="line">$ cd ~/.ssh</div></pre></td></tr></table></figure>
-<p>如果提示：No such file or directory 说明你是第一次使用git。</p>
-<ul>
-<li>生成新的SSH Key</li>
-</ul>
-<figure class="highlight plain"><table><tr><td class="code"><pre><div class="line">$ ssh-keygen -t rsa -C &quot;你的邮箱地址&quot;</div><div class="line">Generrating public/private rsa key pair.</div><div class="line">Enter file in which to save the key (/Users/your_user_directory/.ssh/id_rsa):回车就好</div></pre></td></tr></table></figure>
-<ul>
-<li>然后系统会要你输入密码：</li>
-</ul>
-<figure class="highlight plain"><table><tr><td class="code"><pre><div class="line">Enter passphase (empty for nopassphase):&lt;输入密码&gt;</div><div class="line">Enter same passphase again:&lt;确认密码&gt;</div></pre></td></tr></table></figure>
-<p>这个密码是你之后将项目部署到到远端(如Github)时需要用到的密码，如果为空的话提交项目时则不用输入，这个设置是防止别人往你的项目里提交内容。(<strong>注意</strong>：输入密码的时候是没有  <code>*</code>字样的，直接输入就行。)</p>
-<ul>
-<li>最后看到这样的界面，表示成功设置ssh key了。<br>  <img src="http://odyf4frh9.bkt.clouddn.com/blog0107.jpg" alt=""></li>
-</ul>
-<p><strong>添加SSH Key到Github</strong></p>
-<p>在本机设置SSH Key之后，需要添加到GitHub上，以完成SSH链接的设置。</p>
-<ul>
-<li>资源管理器中找到<code>C:\用户\Admin\.ssh\id_rsa.pub</code>文件,此文件里面内容为刚才生成的密钥。如果看不到这个文件，你需要设置显示隐藏文件。复制文件里面的内容。</li>
-<li>登录Github，点击头像下拉框里的<code>Settings</code>,点击左侧的<code>SSH and GPG keys</code>,<code>New SSH key</code>,粘贴刚才复制的内容即可。</li>
-</ul>
-<p><strong>测试SSH Key是否设置添加成功</strong><br><figure class="highlight plain"><table><tr><td class="code"><pre><div class="line">$ ssh -T git@github.com</div></pre></td></tr></table></figure></p>
-<p>显示如下：<br><figure class="highlight plain"><table><tr><td class="code"><pre><div class="line">The authenticity of host &apos;github.com (207.97.227.239)&apos; can&apos;t be established.</div><div class="line">RSA key fingerprint is 16:27:ac:a5:76:28:2d:36:63:1b:56:4d:eb:df:a6:48.</div><div class="line">Are you sure you want to continue connecting (yes/no)?</div></pre></td></tr></table></figure></p>
-<p>输入<code>yes</code>,看到<code>Hi aierui! You’ve successfully authenticated, but GitHub does not provide shell access.</code>表示添加成功。</p>
-<h2 id="部署到Github"><a href="#部署到Github" class="headerlink" title="部署到Github"></a>部署到Github</h2><ol>
-<li><p>修改站点的-config.yml文件如下：</p>
-<figure class="highlight bash"><table><tr><td class="code"><pre><div class="line">deploy:</div><div class="line">  <span class="built_in">type</span>: git</div><div class="line">  repository: git@github.com:waarm/waarm.github.io.git</div><div class="line">  branch: master</div></pre></td></tr></table></figure>
-<p> (<strong>注意</strong>：<code>_config.yml</code> 全局配置文件，该文件格式要求极为严格，缺少一个空格都会导致运行错误。不要使用<code>Tab</code>缩进，两个空格符，冒号<code>：</code>后面只用一个空格即可 。)</p>
-</li>
-<li><code>$ npm install hexo-deployer-git --save</code></li>
-<li><code>$ hexo d</code></li>
-<li>部署成功后，即可通过你的Github Pages仓库地址来访问我们的博客啦，例如我的地址是<a href="waarm.github.io">waarm.github.io</a></li>
-<li>大功告成！</li>
-</ol>
-
-          
-        
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
       
     </footer>
   </article>
 
 
-    
-  </section>
 
-  
+    <div class="post-spread">
+      
+    </div>
+  </div>
 
 
           </div>
@@ -610,6 +454,14 @@
 
 
           
+  <div class="comments" id="comments">
+    
+      <div class="ds-thread" data-thread-key="2016/11/20/JavaScript数组/"
+           data-title="JavaScript数组" data-url="http://waarm.cn/2016/11/20/JavaScript数组/">
+      </div>
+    
+  </div>
+
 
         </div>
         
@@ -629,8 +481,17 @@
       
 
       
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            站点概览
+          </li>
+        </ul>
+      
 
-      <section class="site-overview sidebar-panel  sidebar-panel-active ">
+      <section class="site-overview sidebar-panel ">
         <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
           <img class="site-author-image" itemprop="image"
                src="/images/avatar.jpg"
@@ -693,6 +554,17 @@
 
       </section>
 
+      
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+            
+              
+            
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#数组的创建方式："><span class="nav-number">1.</span> <span class="nav-text">数组的创建方式：</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#1-使用Array构造函数："><span class="nav-number">1.1.</span> <span class="nav-text">1. 使用Array构造函数：</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#2-使用数组字面量表示法"><span class="nav-number">1.2.</span> <span class="nav-text">2. 使用数组字面量表示法</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#检测数组"><span class="nav-number">2.</span> <span class="nav-text">检测数组</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#数组方法"><span class="nav-number">3.</span> <span class="nav-text">数组方法</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#1-栈方法"><span class="nav-number">3.1.</span> <span class="nav-text">1. 栈方法</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#2-队列方法"><span class="nav-number">3.2.</span> <span class="nav-text">2. 队列方法</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#3-重排序方法"><span class="nav-number">3.3.</span> <span class="nav-text">3. 重排序方法</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#4-操作方法"><span class="nav-number">3.4.</span> <span class="nav-text">4. 操作方法</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#5-位置方法"><span class="nav-number">3.5.</span> <span class="nav-text">5. 位置方法</span></a></li></ol></li></ol></div>
+            
+          </div>
+        </section>
       
 
     </div>
@@ -805,6 +677,10 @@
   
 
   
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.0.1"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.0.1"></script>
+
+
 
   
 
